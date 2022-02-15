@@ -13,36 +13,20 @@ left_motor = Motor(Port.A)
 right_motor = Motor(Port.D)
 Sensor = ColorSensor(Port.S1)
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
-
 robot.settings(Speeding, 20, 30, 40)
  
 #variable
-Speeding = -200
+Speeding = 100
 TurnTimer = 10
 Turn = True
  
-Presseding = False
+#Presseding = False
 
-
-#Rood obstakel omver rijden
-if Sensor.color() == Color.RED:
-    robot.drive(200)
-else:
-    robot.drive(100)
-
-
-# Groene Knop gebruiken
-if Sensor.color() == Color.GREEN:
-    Speaker.Play(100, "Sounds/Trex.wav")
-    robot.stop()
-)
-
-
-#zwarte lijn volgen
+#zwarte lijn volgen 
 while True:
 if Sensor.color() == Color.BLACK:
         robot.drive(Speeding, 0)
-elif Sensor.color() != Color.BLACK:
+elif Sensor.color() == Color.BLACK:
 
 if Turn == False:
        TurnTimer - 1
@@ -60,6 +44,23 @@ if TurnTimer == 0:
     TurnTimer + 10
 elif Turn == True:
     TurnTimer - 1
+
+
+Rood obstakel omver rijden
+if Sensor.color() == Color.RED:
+    robot.drive(200, 360)
+else:
+    robot.drive(100)
+
+
+# Groene Knop gebruiken
+if Sensor.color() == Color.GREEN:
+    #Speaker.Play(100, "Sounds/Trex.wav")
+    robot.stop()
+)
+
+
+
 
 
 
