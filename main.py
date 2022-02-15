@@ -33,7 +33,7 @@ else:
 
 # Groene Knop gebruiken
 if Sensor.color() == Color.GREEN:
-    Speaker.Play(100, "Sounds/Trex")
+    Speaker.Play(100, "Sounds/Trex.wav")
     robot.stop()
 )
 
